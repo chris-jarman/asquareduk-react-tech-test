@@ -6,9 +6,9 @@ import {
 
 import { sql } from 'kysely';
 
-import { AppModule } from './app.module';
+import { AppModule } from './app.module.js';
 
-import { DbService } from './db.service';
+import { DbService } from './db.service.js';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(

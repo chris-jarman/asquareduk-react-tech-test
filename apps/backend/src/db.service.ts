@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { Pool } from 'pg';
+import pg from 'pg';
 
 import { Kysely, PostgresDialect, RawBuilder } from 'kysely';
 
@@ -11,7 +11,7 @@ export class DbService {
   constructor() {
     this.db = new Kysely({
       dialect: new PostgresDialect({
-        pool: new Pool({
+        pool: new pg.Pool({
           database: 'postgres',
           host: 'localhost',
           user: 'postgres',

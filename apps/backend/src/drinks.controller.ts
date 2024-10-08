@@ -1,6 +1,6 @@
 import { Controller, Get, Param } from '@nestjs/common';
 
-import { DrinksService } from './drinks.service';
+import { DrinksService } from './drinks.service.js';
 
 @Controller({
   path: '/drinks',

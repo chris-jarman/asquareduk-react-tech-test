@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 
 import { sql } from 'kysely';
 
-import { DbService } from './db.service';
+import { DbService } from './db.service.js';
 
 @Injectable()
 export class DrinksService {
