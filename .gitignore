@@ -24,3 +24,8 @@ dist-ssr
 *.sw?
 
 /.turbo/
+
+# Ignore dotenv files...
+*.env*
+# ...but not example dotenv files ;)
+!.env.example
