@@ -195,5 +195,5 @@ Ah, frameworks.
 
 ## Checkpoint B
 
-- [ ] Scaffold NestJS backend
-- [ ] Set up proper dev script
+- [x] Scaffold NestJS backend
+- [x] Set up proper dev script
