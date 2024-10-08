@@ -2,6 +2,8 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 
 import { sql } from 'kysely';
 
+import type { Drink } from 'shared-types/drinks';
+
 import { DbService } from './db.service.js';
 
 @Injectable()
@@ -26,10 +28,3 @@ export class DrinksService {
     return drink;
   }
 }
-
-// FIXME(cj): Hoist this into a shared package.
-type Drink = {
-  slug: string;
-  name: string;
-  description: string;
-};
