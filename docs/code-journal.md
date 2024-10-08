@@ -157,3 +157,43 @@ I trust my submission won't be rejected on these grounds 🤞
 > and React to build out a couple of pages that display data from an API.
 
 Cool. Obviously we're going to need a router. A data fetching library will be useful too. I'm going to run with TanStack's offerings for both, as they're pretty ubiquitous.
+
+---
+
+> The API we will use for this (because it's free and doesn't require any authentication) is [TheCocktailDB API](https://www.thecocktaildb.com/api.php).
+
+Oh yeah, an API is already provided for us. This is too easy.
+
+I'd like to demonstrate some full-stack ability, so at the very least I'm going
+to proxy this API with a backend of my own...
+
+---
+
+## Backend tech choices
+
+Ah, frameworks.
+
+- Vanilla Node.js? 🍦
+  A bit of a pain, and not how we do things in the real world.
+- Express? 🐢
+  Old, slow, lame.
+- Koa? 🤓
+  My personal favourite, but I'm not sure the ASquared team have used it before.
+- Fastify? 😎
+  My second pick after Koa. It's every so slightly faster, but I still prefer
+  Koa's super-elegant middleware system.
+- ...?
+
+---
+
+- NestJS? ✅
+  I know from hearsay that ASquared have used it successfully in the past.
+  I dislike worshipping at the altar of OOP, but it's easy to understand.
+  Although it's built on Express, we can use the Fastify adapter to speed it up.
+
+---
+
+## Checkpoint B
+
+- [ ] Scaffold NestJS backend
+- [ ] Set up proper dev script
