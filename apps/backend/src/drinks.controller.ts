@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 
 import { DrinksService } from './drinks.service.js';
 
@@ -9,8 +9,14 @@ export class DrinksController {
   constructor(private readonly drinksService: DrinksService) {}
 
   @Get('/')
-  async getDrinks() {
-    const drinks = await this.drinksService.getDrinks();
+  async getDrinks(
+    @Query('offset') offset: number = 0,
+    @Query('limit') limit: number = 10,
+  ) {
+    const drinks = await this.drinksService.getDrinks({
+      offset,
+      limit,
+    });
     return drinks;
   }
 
