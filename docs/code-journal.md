@@ -133,3 +133,27 @@ Cool, it's alive. It's the standard Vite JavaScript/React starter app.
 - JavaScript is error-prone; let's swap it out for TypeScript;
 
 - The repo root _is_ the root directory of the Vite app. I anticipate building more than just a Vite app, so we should move it into a subdirectory to help with separation of concerns.
+
+---
+
+## Checkpoint 1
+
+- [x] Generate `.nvmrc`
+- [x] Use `pnpm`
+- [x] Use TypeScript
+- [x] Move Vite app to subdirectory
+
+---
+
+## Let's revisit the brief
+
+> This challenge will require you to use Javascript
+> ...
+
+😬 Erm, I'm using TypeScript, which transpiles to JavaScript, and is objectively better.
+I trust my submission won't be rejected on these grounds 🤞
+
+> ...
+> and React to build out a couple of pages that display data from an API.
+
+Cool. Obviously we're going to need a router. A data fetching library will be useful too. I'm going to run with TanStack's offerings for both, as they're pretty ubiquitous.
