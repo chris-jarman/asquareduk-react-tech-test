@@ -49,7 +49,8 @@ Our branch name format is `orgname/type/name`.
 
 > 678b7e7 Replaced depreciated punk api
 
-We don't enforce [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/#specification), but the commit message is succinct and informative.
+We don't enforce [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/#specification),
+but the commit message is succinct and informative. Nice.
 
 ---
 
@@ -88,7 +89,9 @@ $ git show --unified=0 HEAD^-1
 >
 > ...
 
-The actual change was committed only a minute before the merge. Hope it was a straightforward change... 😉
+The actual change was committed only a minute before the merge.
+
+Hope it was a straightforward change... 😉
 
 ---
 
@@ -132,7 +135,9 @@ Cool, it's alive. It's the standard Vite JavaScript/React starter app.
 
 - JavaScript is error-prone; let's swap it out for TypeScript;
 
-- The repo root _is_ the root directory of the Vite app. I anticipate building more than just a Vite app, so we should move it into a subdirectory to help with separation of concerns.
+- The repo root _is_ the root directory of the Vite app. I anticipate building
+  more than just a Vite app, so we should move it into a subdirectory to help
+  with separation of concerns.
 
 ---
 
@@ -150,13 +155,15 @@ Cool, it's alive. It's the standard Vite JavaScript/React starter app.
 > This challenge will require you to use Javascript
 > ...
 
-😬 Erm, I'm using TypeScript, which transpiles to JavaScript, and is objectively better.
-I trust my submission won't be rejected on these grounds 🤞
+😬 Erm, I'm using TypeScript, which transpiles to JavaScript, and is, IMNSHO,
+objectively better. I trust my submission won't be rejected on these grounds 🤞
 
 > ...
 > and React to build out a couple of pages that display data from an API.
 
-Cool. Obviously we're going to need a router. A data fetching library will be useful too. I'm going to run with TanStack's offerings for both, as they're pretty ubiquitous.
+Cool. Obviously we're going to need a router. A data fetching library will be
+useful too. I'm going to run with TanStack's offerings for both, as they're
+pretty ubiquitous and thoroughly battle-tested.
 
 ---
 
@@ -197,3 +204,40 @@ Ah, frameworks.
 
 - [x] Scaffold NestJS backend
 - [x] Set up proper dev script
+
+---
+
+## Checkpoint baz
+
+- [x] TDD a crude controller to support `GET /drinks/` and `GET /drinks/:slug`
+- [x] Wire up the webapp's home page to request all drinks
+
+OK, so we've validated our approach... to a point...
+
+---
+
+## Snags
+
+The backend just returns minimal hard-coded data at the moment. My first thought
+was to proxy TheCocktailDB's API, but that's lame for a number of reasons:
+
+- Their API doesn't actually expose the functionality we want (list _all_ drinks).
+  We could work around this via multiple 'creative' calls to various endpoints,
+  but that's doing far too much work for a simple task;
+
+- The brief asks us to display data on the list page that is only returned by
+  the their "Lookup full cocktails by ID" endpoint. We'd end up iterating over
+  our result set and making an API call for each item. This is pretty lame.
+  We'd end up with a waterfall of requests, whether we do it on the front end
+  or the backend. Plus their API is pretty harshly rate-limited (and yes,
+  I discovered this the hard way).
+
+---
+
+## Solution
+
+We're going to scrape the data from TheCocktailDB's API, and store it in our own
+database. I'm a big fan of PostgreSQL - it's ACID-compliant, has an excellent
+feature set for crafting rich queries, has lovely JSONB support if you just want to
+use it as a document store when all that 3NF relational malarkey is overkill,
+and it's plenty fast enough.
